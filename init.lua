@@ -47,6 +47,9 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 vim.opt.termguicolors = true
 
+-- row relative number
+vim.wo.relativenumber = true
+
 -- Install package manager
 --    https://github.com/folke/lazy.nvim
 --    `:help lazy.nvim.txt` for more info
@@ -192,6 +195,12 @@ require('lazy').setup({
       'nvim-tree/nvim-web-devicons',
     },
   },
+  -- smooth scrolling
+  {
+    'karb94/neoscroll.nvim',
+  },
+
+  
 
   -- NOTE: Next Step on Your Neovim Journey: Add/Configure additional "plugins" for kickstart
   --       These are some example plugins that I've included in the kickstart repository.
@@ -284,6 +293,8 @@ require('telescope').setup {
     },
   },
 }
+
+require('neoscroll').setup()
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
@@ -381,7 +392,6 @@ require("nvim-tree").setup({
     group_empty = true,
   },
   filters = {
-    dotfiles = true,
   },
 })
 
